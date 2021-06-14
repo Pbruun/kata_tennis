@@ -20,15 +20,7 @@ class TennisGame1:
         if (self.p1points==self.p2points):
             self.deuce()
         elif (self.p1points>=4 or self.p2points>=4):
-            minusResult = self.p1points-self.p2points
-            if (minusResult==1):
-                result ="Advantage " + self.player1Name
-            elif (minusResult ==-1):
-                result ="Advantage " + self.player2Name
-            elif (minusResult>=2):
-                result = "Win for " + self.player1Name
-            else:
-                result ="Win for " + self.player2Name
+            self.greaterThan4()
         else:
             for i in range(1,3):
                 if (i==1):
@@ -49,6 +41,16 @@ class TennisGame1:
                 1 : "Fifteen-All",
                 2 : "Thirty-All",
             }.get(self.p1points, "Deuce")
+    def greaterThan4(self):
+            minusResult = self.p1points-self.p2points
+            if (minusResult==1):
+                result ="Advantage " + self.player1Name
+            elif (minusResult ==-1):
+                result ="Advantage " + self.player2Name
+            elif (minusResult>=2):
+                result = "Win for " + self.player1Name
+            else:
+                result ="Win for " + self.player2Name
 
 class TennisGame2:
     def __init__(self, player1Name, player2Name):
